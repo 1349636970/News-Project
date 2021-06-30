@@ -2,6 +2,7 @@ package US.SummerChallenge.NewsProject.Services;
 
 import US.SummerChallenge.NewsProject.model.dto.NewsDTO;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -10,5 +11,5 @@ import java.util.Date;
  **/
 public interface NewsService {
     NewsDTO getNews();
-    NewsDTO getNews(Date date);
+    NewsDTO getNews(LocalDate date);
 }

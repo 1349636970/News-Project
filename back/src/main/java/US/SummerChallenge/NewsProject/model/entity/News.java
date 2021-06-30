@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @Author: Zhenyu Lin
@@ -18,14 +19,16 @@ public class News {
     @GeneratedValue
     private Integer id;
 
-    @Column(name = "News Title")
+    @Column(name = "NewsTitle")
     private String newsTitle;
-    @Column(name = "News Sources")
+    @Column(name = "NewsSources")
     private String newsSources;
-    @Column(name = "News Tag")
+    @Column(name = "NewsTag")
     private String newsTag;
-    @Column(name = "News Image")
+    @Column(name = "NewsImage")
     private String newsImage;
-    @Column(name = "News Summary")
+    @Column(name = "NewsSummary")
     private String newsSummary;
+    @Column(name = "Time")
+    private Date time;
 }

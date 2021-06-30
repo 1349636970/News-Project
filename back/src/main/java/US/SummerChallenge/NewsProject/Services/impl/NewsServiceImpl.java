@@ -4,6 +4,7 @@ import US.SummerChallenge.NewsProject.Services.NewsService;
 import US.SummerChallenge.NewsProject.model.dto.NewsDTO;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -18,7 +19,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public NewsDTO getNews(Date date) {
+    public NewsDTO getNews(LocalDate date) {
         return null;
     }
 }

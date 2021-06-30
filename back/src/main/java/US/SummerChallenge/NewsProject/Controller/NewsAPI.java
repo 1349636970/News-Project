@@ -3,9 +3,10 @@ package US.SummerChallenge.NewsProject.Controller;
 import US.SummerChallenge.NewsProject.Services.NewsService;
 import US.SummerChallenge.NewsProject.model.dto.NewsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 
 /**
  * @Author: Zhenyu Lin
@@ -16,8 +17,18 @@ public class NewsAPI {
     @Autowired
     NewsService newsService;
 
+
     @RequestMapping(value = "todayNews", method = RequestMethod.POST)
     public NewsDTO getTodayNews() {
         return newsService.getNews();
+    }
+
+    @RequestMapping(value = "queryNewsByDate", method = RequestMethod.GET)
+    public NewsDTO getNews(
+            @RequestParam(name = "date")
+            @DateTimeFormat(pattern = "yyyy-MM-dd")
+            LocalDate date
+    ) {
+        return newsService.getNews(date);
     }
 }
