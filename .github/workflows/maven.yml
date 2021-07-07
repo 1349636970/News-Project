@@ -50,7 +50,7 @@ jobs:
       - name: Setup database
         run: psql -h postgres -U postgres_user -c 'CREATE DATABASE "News";'
         env:
-          PGPASSWORD: postgres
+          PGPASSWORD: postgres_password
       - uses: actions/checkout@v2
       - name: Set up JDK 11
         uses: actions/setup-java@v2
