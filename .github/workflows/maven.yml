@@ -60,9 +60,6 @@ jobs:
 
       - name: Build with Maven
         working-directory: 'back'
-        run: mvn -B package --file pom.xml
-#        env:
-#          # The hostname used to communicate with the PostgreSQL service container
-#          POSTGRES_HOST: localhost
-#          # The default PostgreSQL port
-#          POSTGRES_PORT: 5432
+#        run: mvn -B package --file pom.xml
+        run: mvn --batch-mode deploy
+
