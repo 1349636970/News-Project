@@ -23,5 +23,5 @@ jobs:
 
     - name: Build with Maven
       working-directory: 'back'
-      run: ls -a
-#      run: mvn -B package --file pom.xml
+#      run: ls -a
+      run: mvn -B package --file pom.xml
