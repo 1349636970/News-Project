@@ -64,6 +64,5 @@ public class NewsDataServiceImpl implements NewsDataService {
 
 
 
-        System.out.println(mapper.get("data").get("list").get(0).get("level"));
     }
 }
