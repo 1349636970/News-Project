@@ -31,4 +31,13 @@ public class NewsAPI {
     ) {
         return newsService.getNews(date);
     }
+
+    @RequestMapping(value = "test", method = RequestMethod.GET)
+    public LocalDate test(
+            @RequestParam(name = "date")
+            @DateTimeFormat(pattern = "yyyy-MM-dd")
+            LocalDate date
+    ) {
+        return date;
+    }
 }
