@@ -1,0 +1,86 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+#form{
+    width: 600px;
+    height: auto;
+    background: white;
+    margin: 130px auto auto 390px;
+    
+}
+
+#blank{
+    position: relative;
+    width: 100%;
+    height: 2vh;
+    background: #142b47;
+    
+}
+
+
+
+h6{
+    font-size: 25px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    padding-left: 25px;
+}
+
+label{
+    font-size: 20px;
+    padding-left: 25px;
+}
+
+#search{
+    height: 33px;
+    font-size: 20px;
+}
+
+#p{
+    padding-left: 25px;
+    font-size: 20px;
+}
+
+.news-list{
+    font-size: 15px;
+    display:inline-flex;
+    justify-content: space-evenly;
+    padding-left: 20px;
+}
+
+.check1, .check2, .check3{
+    font-size: 15px;
+    padding-left: 20px;
+}
+
+#search-btn{
+    font-size: 30px;
+    position:relative;
+    padding: 30px 50px 20px 250px;
+    
+}
+
+#search1{
+    font-size: 22px;
+    color: white;
+    background-color: #142b47;
+    border-radius: 5px;
+}
+
+#search1:hover{
+    color: lightskyblue;
+    cursor:pointer;
+}
+
+@media screen and (max-width: 770px){
+    #form{
+        width: 80%;
+        height: auto;
+        background: whitesmoke;
+        margin: 130px 40px auto 60px;
+        
+    
+        
+    }

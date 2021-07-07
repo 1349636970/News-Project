@@ -1,0 +1,215 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+}
+
+/* --- banner --- */
+
+#banner{
+    background: white;
+    background-size: cover;
+    background:-position: center;
+    height: 35vh;
+}
+
+#banner div{
+    background-color: white;
+}
+
+.banner-text{
+    text-align: center;
+    color: #142b47;
+    background-color: white;
+    padding-bottom: 0%;
+}
+
+.banner-text h1 {
+    font-size: 135px;
+    font-family: 'Kaushan Script', cursive;
+    background-color: white;
+}
+
+.banner-text p {
+    font-size: 35px;
+    background-color: white;
+}
+
+@media screen and (max-width: 770px){
+    #banner{
+        height: 40vh;
+    }
+    .banner-text h1{
+        font-size: 150px; 
+    }
+}
+
+/* --- nav --- */
+
+nav{
+    width: 100%;
+    background: #142b47;
+    overflow: auto;
+}
+
+.nav-list{
+    background-color: #142b47;
+}
+
+.nav-list li{
+    background-color: #142b47;
+    font-size: 20px;
+    display: inline-block;
+    padding: 30px 0px 30px 40px;
+}
+
+.nav-list a{
+    background-color: #142b47;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-list a:hover{
+    color: lightskyblue;
+}
+
+
+#search-bar{
+    height: 30px;
+    float: right;
+    padding-top: 13px;
+    padding-right: 37px;
+    color: white;
+    background-color: #142b47;
+}
+
+.fa-search{
+    color: white;
+    background-color: #142b47;
+    padding-top: 13px;
+    padding-right: 30px;
+    
+}
+
+.fa-search:hover{
+    color: lightskyblue;
+}
+
+.search-form{
+    margin-top: 15px;
+    
+} 
+
+input[type=text]{
+    padding: 7px;
+    border: none;
+    font-size: 16px;
+    font-family: sans-serif;
+    
+}
+
+@media screen and (max-width: 770px){
+    nav{
+        width: 100%;
+        height: 80px;
+    }
+    
+    .nav-list li{
+        padding: 10px;
+    }
+
+    #search-bar{
+        float:none;
+        padding-left: 10px;
+
+    }
+
+    input[type=text]{
+        width: 190px;
+    }
+}
+
+/* --- search result --- */
+
+#search{
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 25px;
+
+}
+
+/* --- containers --- */
+
+.news-container{
+    width: 100%;
+    height: auto;
+    background: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.box{
+    width: 45%;
+    height: 1000px;
+    background: whitesmoke;
+    margin: 20px;
+    box-sizing: border-box;
+    font-size: 50px;
+}
+
+@media screen and (max-width: 770px){
+
+   .news-container{
+       flex-direction: column;
+   }
+    
+    
+    .box{
+        width: 90%;
+        height: 400px;
+}
+
+}
+
+
+/* --- footer --- */
+
+footer{ 
+    background: #142b47;
+    height: 250px;
+    width: 100%;
+    font-family: "Open sans";
+    padding-top: 40px;
+    
+
+}
+
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #142b47;
+}
+
+.footer-content h4, .footer-content h6{
+    background-color: #142b47;
+    color: white;
+}
+
+.footer-content h4{
+    font-size:70px;
+    padding-top: 30px;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.footer-content h6{
+    font-size: 25px;
+}
+
