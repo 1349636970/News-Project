@@ -23,5 +23,5 @@ jobs:
         branch: 'back'
         folder: 'build'
     - name: Build with Maven
-      working-directory: ./back
+      
       run: ls -a
