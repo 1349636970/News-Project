@@ -20,7 +20,8 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-    working-directory: 'back'
+
     - name: Build with Maven
+      working-directory: 'back'
       run: ls -a
 #      run: mvn -B package --file pom.xml
