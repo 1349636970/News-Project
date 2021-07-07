@@ -15,8 +15,9 @@ import java.util.Date;
 @Getter
 @Setter
 public class News {
-    @Id
+
     @GeneratedValue
+    @Id
     private Integer id;
 
     @Column(name = "NewsTitle")

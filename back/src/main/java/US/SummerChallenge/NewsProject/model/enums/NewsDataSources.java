@@ -8,12 +8,21 @@ import lombok.Getter;
  **/
 @Getter
 public enum NewsDataSources {
-    NBCNEWS()
+    CCTV("https://api.cntv.cn/NewArticle/getArticleListByPageId?serviceId=pcenglish&id=PAGE1394789601117162&n=20&t=jsonp&cb=Callback");
 
 
 
     private final String link;
+    private int pageNumber;
     NewsDataSources(String link) {
         this.link = link;
+    }
+
+    public void setPageNumber(int pageNumber) {
+        this.pageNumber = pageNumber;
+    }
+
+    public String getLink() {
+        return this.link+"&p="+String.valueOf(pageNumber);
     }
 }
