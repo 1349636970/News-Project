@@ -25,16 +25,16 @@ jobs:
         # `POSTGRES_HOST` is `postgres`
         env:
           # optional (defaults to `postgres`)
-          POSTGRES_DB: News
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
           # required
-          POSTGRES_PASSWORD: postgres_password
+          POSTGRES_PASSWORD: ${{ secrets.DATASOURCEPASSWORD }}
           # optional (defaults to `5432`)
-          POSTGRES_PORT: 5432
+          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
           # optional (defaults to `postgres`)
-          POSTGRES_USER: postgres_user
+          POSTGRES_USER: ${{ secrets.DATASOURCEUSERNAME }}
         ports:
           # maps tcp port 5432 on service container to the host
-          - 5432:5432
+          - ${{ secrets.POSTGRES_PORT }}:${{ secrets.POSTGRES_PORT }}
         # set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
