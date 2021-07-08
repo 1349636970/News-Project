@@ -57,7 +57,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-#          registry-url: https://maven.pkg.github.com/
+          registry-url: https://maven.pkg.github.com/
       - name: Build with Maven
         working-directory: 'back'
 #        run: mvn -B package --file pom.xml
