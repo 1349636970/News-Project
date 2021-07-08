@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>US.SummerChallenge</groupId>
-    <artifactId>NewsProject</artifactId>
+    <artifactId>news-project</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>NewsProject</name>
     <description>This is a project for Summer Challenge</description>
@@ -68,7 +68,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/1349636970/NewsProject</url>
+            <url>https://maven.pkg.github.com/1349636970/news-project</url>
         </repository>
     </distributionManagement>
 
