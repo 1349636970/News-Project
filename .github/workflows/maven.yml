@@ -35,7 +35,7 @@ jobs:
           POSTGRES_USER: ${{ secrets.DATASOURCEUSERNAME }}
 #        ports:
 #          # maps tcp port 5432 on service container to the host
-#          - 5432:5432
+          - 5432:5432
         # set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -60,8 +60,8 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         working-directory: 'back'
-#        run: mvn -B package --file pom.xml
-        run: mvn -B package
+        run: mvn -B package --file pom.xml
+#        run: mvn -B package
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

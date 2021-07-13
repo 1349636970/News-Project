@@ -14,7 +14,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.HashMap;
+import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -28,13 +29,13 @@ import java.util.regex.Pattern;
 public class NewsDataServiceImpl implements NewsDataService {
     @Autowired
     NewsRepository newsRepository;
-//    @PostConstruct
+    @PostConstruct
     @Override
-    public void fetchData() throws IOException, InterruptedException {
-        NewsDataSources.CCTV.setPageNumber(1);
+    public void CCTVfetchData() throws IOException, InterruptedException {
+
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request =  HttpRequest.newBuilder()
-                .uri(URI.create(NewsDataSources.CCTV.getLink()))
+                .uri(URI.create(NewsDataSources.CCTV.getLink(1)))
                 .build();
         HttpResponse<String> httpResponse = client.send(request,HttpResponse.BodyHandlers.ofString());
         Pattern pattern = Pattern.compile("\\{.+\\}");
@@ -48,6 +49,7 @@ public class NewsDataServiceImpl implements NewsDataService {
         @SuppressWarnings("unchecked")
         Map<String,Map<String, List<Map<String,String>>>> mapper= objectMapper.readValue(JSONData,Map.class);
         List<Map<String,String>> dataList = mapper.get("data").get("list");
+        List<News> newsList = new ArrayList<>();
         dataList
                 .forEach(
                         newsMapper -> {
@@ -58,11 +60,23 @@ public class NewsDataServiceImpl implements NewsDataService {
                             news.setNewsTag(newsMapper.get("keywords"));
                             news.setNewsSummary(newsMapper.get("desc"));
                             news.setTime(new java.sql.Timestamp(Long.parseLong(newsMapper.get("focus_date"))));
-                            newsRepository.save(news);
+                            news.setNewsMedia(NewsDataSources.CCTV.name());
+                            newsList.add(news);
+
                         }
                 );
-
-            System.out.print(4);
+        newsRepository.saveAll(newsList);
 
     }
+
+    @Override
+    public void fetchDataCBSNews() throws IOException, InterruptedException {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request =  HttpRequest.newBuilder()
+                .uri(URI.create(NewsDataSources.CBS.getLink()))
+                .build();
+        HttpResponse<String> httpResponse = client.send(request,HttpResponse.BodyHandlers.ofString());
+        
+    }
+
 }

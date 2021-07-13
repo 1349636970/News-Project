@@ -8,21 +8,21 @@ import lombok.Getter;
  **/
 @Getter
 public enum NewsDataSources {
-    CCTV("https://api.cntv.cn/NewArticle/getArticleListByPageId?serviceId=pcenglish&id=PAGE1394789601117162&n=20&t=jsonp&cb=Callback");
-
-
+    CCTV("https://api.cntv.cn/NewArticle/getArticleListByPageId?serviceId=pcenglish&id=PAGE1394789601117162&n=20&t=jsonp&cb=Callback"),
+    CBS("https://www.cbsnews.com/world/")
+    ;
 
     private final String link;
-    private int pageNumber;
     NewsDataSources(String link) {
         this.link = link;
     }
 
-    public void setPageNumber(int pageNumber) {
-        this.pageNumber = pageNumber;
+
+    public String getLink(int pageNumber) {
+        return this.link+"&p=" + pageNumber;
     }
 
     public String getLink() {
-        return this.link+"&p="+String.valueOf(pageNumber);
+        return this.link;
     }
 }

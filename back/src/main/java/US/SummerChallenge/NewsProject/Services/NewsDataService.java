@@ -7,5 +7,6 @@ import java.io.IOException;
  * @Date: 2021/6/29 23:29
  **/
 public interface NewsDataService {
-    void fetchData() throws IOException,InterruptedException;
+    void CCTVfetchData() throws IOException,InterruptedException;
+    void fetchDataCBSNews() throws IOException,InterruptedException;
 }
