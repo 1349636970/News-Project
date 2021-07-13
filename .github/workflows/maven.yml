@@ -61,7 +61,6 @@ jobs:
       - name: Build with Maven
         working-directory: 'back'
         run: mvn -B package --file pom.xml
-#        run: mvn -B package
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
