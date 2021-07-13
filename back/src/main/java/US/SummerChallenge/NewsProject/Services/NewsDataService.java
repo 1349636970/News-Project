@@ -8,5 +8,7 @@ import java.io.IOException;
  **/
 public interface NewsDataService {
     void CCTVfetchData() throws IOException,InterruptedException;
-    void fetchDataCBSNews() throws IOException,InterruptedException;
+    void CBSNewsfetchData() throws IOException,InterruptedException;
+    void XINHUAfetchData() throws IOException,InterruptedException;
+
 }

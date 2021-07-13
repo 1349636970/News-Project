@@ -32,7 +32,7 @@ public class News {
     private String newsImage;
     @Column(name = "NewsSummary",length = 4096)
     private String newsSummary;
-    @Column(name = "Time")
+    @Column(name = "Time",nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date time;
     @Column(name = "NewsMedia")

@@ -33,7 +33,7 @@ jobs:
           POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
           # optional (defaults to `postgres`)
           POSTGRES_USER: ${{ secrets.DATASOURCEUSERNAME }}
-#        ports:
+        ports:
 #          # maps tcp port 5432 on service container to the host
           - 5432:5432
         # set health checks to wait until postgres has started

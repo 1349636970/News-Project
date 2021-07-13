@@ -5,6 +5,10 @@ import US.SummerChallenge.NewsProject.Services.NewsDataService;
 import US.SummerChallenge.NewsProject.model.entity.News;
 import US.SummerChallenge.NewsProject.model.enums.NewsDataSources;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +18,11 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
-import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,7 +34,7 @@ import java.util.regex.Pattern;
 public class NewsDataServiceImpl implements NewsDataService {
     @Autowired
     NewsRepository newsRepository;
-    @PostConstruct
+
     @Override
     public void CCTVfetchData() throws IOException, InterruptedException {
 
@@ -70,13 +75,59 @@ public class NewsDataServiceImpl implements NewsDataService {
     }
 
     @Override
-    public void fetchDataCBSNews() throws IOException, InterruptedException {
+    public void CBSNewsfetchData() throws IOException, InterruptedException {
+//        HttpClient client = HttpClient.newHttpClient();
+//        HttpRequest request =  HttpRequest.newBuilder()
+//                .uri(URI.create(NewsDataSources.CBS.getLink()))
+//                .build();
+//        HttpResponse<String> httpResponse = client.send(request,HttpResponse.BodyHandlers.ofString());
+
+    }
+
+    @PostConstruct
+    @Override
+    public void XINHUAfetchData() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request =  HttpRequest.newBuilder()
-                .uri(URI.create(NewsDataSources.CBS.getLink()))
+                .uri(URI.create(NewsDataSources.XINHUA.getLink()))
                 .build();
         HttpResponse<String> httpResponse = client.send(request,HttpResponse.BodyHandlers.ofString());
-        
+        Document doc = Jsoup.parse(httpResponse.body());
+        Elements countriesNews = doc.select("div.leftBox");
+        Elements textForNews = countriesNews.select("div.bigPic02 > div.tit > a");
+        List<News> newsList = new ArrayList<>();
+        textForNews.forEach(
+                newsMapper -> {
+                    News news = new News();
+                    news.setNewsTitle(newsMapper.text());
+                    news.setNewsSources(newsMapper.attr("href"));
+                    news.setNewsMedia(NewsDataSources.XINHUA.name());
+                    try {
+                        news.setTime(stringToDate(newsMapper.attr("href")));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    newsList.add(news);
+                }
+        );
+        newsRepository.saveAll(newsList);
+
     }
+
+    private Date stringToDate(String href) throws ParseException {
+        String pattern = "\\d{4}-\\d{1,2}/\\d{1,2}";
+        Pattern r = Pattern.compile(pattern);
+		Matcher m = r.matcher(href);
+		Date date;
+		if (m.find()) {
+		    DateFormat format = new SimpleDateFormat("yyyy-MM/dd", Locale.ENGLISH);
+		    date = format.parse(m.group(0));
+        } else {
+		    date = new Date(0);
+        }
+
+		return date;
+    }
+
 
 }
