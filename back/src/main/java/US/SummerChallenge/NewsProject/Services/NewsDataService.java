@@ -10,5 +10,6 @@ public interface NewsDataService {
     void CCTVfetchData() throws IOException,InterruptedException;
     void CBSNewsfetchData() throws IOException,InterruptedException;
     void XINHUAfetchData() throws IOException,InterruptedException;
+    void PEOPLEfetchData() throws IOException,InterruptedException;
 
 }

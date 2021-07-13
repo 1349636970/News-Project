@@ -84,7 +84,7 @@ public class NewsDataServiceImpl implements NewsDataService {
 
     }
 
-    @PostConstruct
+
     @Override
     public void XINHUAfetchData() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
@@ -111,6 +111,12 @@ public class NewsDataServiceImpl implements NewsDataService {
                 }
         );
         newsRepository.saveAll(newsList);
+
+    }
+
+    @PostConstruct
+    @Override
+    public void PEOPLEfetchData() throws IOException, InterruptedException {
 
     }
 
