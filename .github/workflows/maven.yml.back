@@ -1,0 +1,65 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Java CI with Maven
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ back ]
+
+jobs:
+  # label of the container job
+  postgres-job:
+    # containers must run in Linux based operating systems
+    runs-on: ubuntu-latest
+    # Docker Hub image that `postgres-job` executes in
+#    container: node:latest
+
+    # service containers to run with `postgres-job`
+    services:
+      # label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres:latest
+        # service environment variables
+        # `POSTGRES_HOST` is `postgres`
+        env:
+          # optional (defaults to `postgres`)
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+          # required
+          POSTGRES_PASSWORD: ${{ secrets.DATASOURCEPASSWORD }}
+          # optional (defaults to `5432`)
+          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
+          # optional (defaults to `postgres`)
+          POSTGRES_USER: ${{ secrets.DATASOURCEUSERNAME }}
+        ports:
+#          # maps tcp port 5432 on service container to the host
+          - 5432:5432
+        # set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Install PostgreSQL client
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes postgresql-client
+
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '15'
+          distribution: 'adopt'
+      - name: Build with Maven
+        working-directory: 'back'
+        run: mvn -B package --file pom.xml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+
