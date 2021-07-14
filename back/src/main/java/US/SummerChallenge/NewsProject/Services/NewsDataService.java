@@ -11,5 +11,9 @@ public interface NewsDataService {
     void CBSNewsfetchData() throws IOException,InterruptedException;
     void XINHUAfetchData() throws IOException,InterruptedException;
     void PEOPLEfetchData() throws IOException,InterruptedException;
-
+    void USTODAYfetchData() throws IOException,InterruptedException;
+    void NYTIMEfetchData() throws IOException,InterruptedException;
+    void THEHIMALAYANTIMESfetchData() throws IOException,InterruptedException;
+    void KATHMANDUPOSTfetchData() throws IOException,InterruptedException;
+    void REPUBLICAfetchData() throws IOException,InterruptedException;
 }

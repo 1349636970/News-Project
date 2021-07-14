@@ -11,7 +11,12 @@ public enum NewsDataSources {
     CCTV("https://api.cntv.cn/NewArticle/getArticleListByPageId?serviceId=pcenglish&id=PAGE1394789601117162&n=20&t=jsonp&cb=Callback"),
     CBS("https://www.cbsnews.com/world/"),
     XINHUA("http://www.xinhuanet.com/english/world/index.htm"),
-    PEOPLE("http://en.people.cn/90777/")
+    PEOPLE("http://en.people.cn/90777/"),
+    USTODAY("https://www.usatoday.com/news/world/"),
+    NYTIME("https://www.nytimes.com/section/world"),
+    THEHIMALAYANTIMES("https://thehimalayantimes.com/world"),
+    KATHMANDUPOST("https://kathmandupost.com/national"),
+    REPUBLICA("https://myrepublica.nagariknetwork.com/")
     ;
 
     private final String link;
