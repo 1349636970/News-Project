@@ -6,7 +6,7 @@ import java.io.IOException;
  * @Author: Zhenyu Lin
  * @Date: 2021/6/29 23:29
  **/
-public interface NewsDataService {
+public interface iNewsDataService {
     void CCTVfetchData() throws IOException,InterruptedException;
     void CBSNewsfetchData() throws IOException,InterruptedException;
     void XINHUAfetchData() throws IOException,InterruptedException;

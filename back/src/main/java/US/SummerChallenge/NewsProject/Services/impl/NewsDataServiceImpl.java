@@ -1,7 +1,7 @@
 package US.SummerChallenge.NewsProject.Services.impl;
 
 import US.SummerChallenge.NewsProject.Repository.NewsRepository;
-import US.SummerChallenge.NewsProject.Services.NewsDataService;
+import US.SummerChallenge.NewsProject.Services.iNewsDataService;
 import US.SummerChallenge.NewsProject.model.entity.News;
 import US.SummerChallenge.NewsProject.model.enums.NewsDataSources;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,7 +12,6 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -31,7 +30,7 @@ import java.util.regex.Pattern;
  * @Date: 2021/7/6 13:35
  **/
 @Service
-public class NewsDataServiceImpl implements NewsDataService {
+public class NewsDataServiceImpl implements iNewsDataService {
     @Autowired
     NewsRepository newsRepository;
 

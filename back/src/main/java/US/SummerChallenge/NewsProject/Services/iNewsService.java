@@ -9,7 +9,7 @@ import java.util.Date;
  * @Author: Zhenyu Lin
  * @Date: 2021/6/29 1:01
  **/
-public interface NewsService {
+public interface iNewsService {
     NewsDTO getNews();
     NewsDTO getNews(LocalDate date);
 }
