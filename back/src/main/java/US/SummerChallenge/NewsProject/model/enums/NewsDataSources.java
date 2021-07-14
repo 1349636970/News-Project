@@ -8,21 +8,36 @@ import lombok.Getter;
  **/
 @Getter
 public enum NewsDataSources {
-    CCTV("https://api.cntv.cn/NewArticle/getArticleListByPageId?serviceId=pcenglish&id=PAGE1394789601117162&n=20&t=jsonp&cb=Callback");
-
-
+    CCTV("https://api.cntv.cn/NewArticle/getArticleListByPageId?serviceId=pcenglish&id=PAGE1394789601117162&n=20&t=jsonp&cb=Callback"),
+    CBS("https://www.cbsnews.com/world/"),
+    XINHUA("http://www.xinhuanet.com/english/world/index.htm"),
+    PEOPLE("http://en.people.cn/90777/"),
+    USTODAY("https://www.usatoday.com/news/world/"),
+    NYTIME("https://www.nytimes.com/section/world"),
+    THEHIMALAYANTIMES("https://thehimalayantimes.com/world"),
+    KATHMANDUPOST("https://kathmandupost.com/national"),
+    REPUBLICA("https://myrepublica.nagariknetwork.com/")
+    ;
 
     private final String link;
-    private int pageNumber;
     NewsDataSources(String link) {
         this.link = link;
     }
 
-    public void setPageNumber(int pageNumber) {
-        this.pageNumber = pageNumber;
+
+    public String getLink(int pageNumber) {
+        return switch (this.name()) {
+            case "CCTV" -> this.link+"&p=" + pageNumber;
+            case "PEOPLE" -> this.link+"index"+pageNumber+".html";
+            default -> throw new IllegalStateException("Unexpected value: " + this.name());
+        };
     }
 
     public String getLink() {
-        return this.link+"&p="+String.valueOf(pageNumber);
+        return switch (this.name()) {
+            case "CCTV" -> this.link+"&p=1";
+            case "PEOPLE" -> this.link+"index.html";
+            default -> this.link;
+        };
     }
 }

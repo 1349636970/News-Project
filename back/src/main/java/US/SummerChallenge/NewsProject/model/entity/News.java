@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -18,7 +19,8 @@ public class News {
 
     @GeneratedValue
     @Id
-    private Integer id;
+    @Column(name = "id",length = 1024)
+    private Long id;
 
     @Column(name = "NewsTitle")
     private String newsTitle;
@@ -28,8 +30,11 @@ public class News {
     private String newsTag;
     @Column(name = "NewsImage")
     private String newsImage;
-    @Column(name = "NewsSummary")
+    @Column(name = "NewsSummary",length = 4096)
     private String newsSummary;
-    @Column(name = "Time")
+    @Column(name = "Time",nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date time;
+    @Column(name = "NewsMedia")
+    private String newsMedia;
 }

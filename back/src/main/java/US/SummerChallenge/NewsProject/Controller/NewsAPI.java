@@ -1,6 +1,6 @@
 package US.SummerChallenge.NewsProject.Controller;
 
-import US.SummerChallenge.NewsProject.Services.NewsService;
+import US.SummerChallenge.NewsProject.Services.iNewsService;
 import US.SummerChallenge.NewsProject.model.dto.NewsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,12 +15,12 @@ import java.time.LocalDate;
 @RestController
 public class NewsAPI {
     @Autowired
-    NewsService newsService;
+    iNewsService iNewsService;
 
 
     @RequestMapping(value = "todayNews", method = RequestMethod.POST)
     public NewsDTO getTodayNews() {
-        return newsService.getNews();
+        return iNewsService.getNews();
     }
 
     @RequestMapping(value = "queryNewsByDate", method = RequestMethod.GET)
@@ -29,7 +29,7 @@ public class NewsAPI {
             @DateTimeFormat(pattern = "yyyy-MM-dd")
             LocalDate date
     ) {
-        return newsService.getNews(date);
+        return iNewsService.getNews(date);
     }
 
     @RequestMapping(value = "test", method = RequestMethod.GET)
