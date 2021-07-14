@@ -4,10 +4,20 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ back ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
+#  push:
+#    branches: [ back ]
+#  pull_request:
+#    branches: [ main ]
 
 jobs:
   build:
@@ -37,4 +47,5 @@ jobs:
           distribution: 'adopt'
       - name: Build with Maven
         working-directory: back
-        run: mvn -B package --file pom.xml
+        run: mvn -B package --file pom.xml && ls -a
+

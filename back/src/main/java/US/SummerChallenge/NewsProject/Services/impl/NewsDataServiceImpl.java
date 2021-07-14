@@ -35,7 +35,7 @@ public class NewsDataServiceImpl implements NewsDataService {
     @Autowired
     NewsRepository newsRepository;
 
-    @PostConstruct
+//    @PostConstruct
     public void executeAll() throws IOException, InterruptedException {
         CCTVfetchData();
         CBSNewsfetchData();
