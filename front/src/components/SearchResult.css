@@ -1,0 +1,10 @@
+.searchResult {
+    width: 90%;
+    justify-content: center;
+    display: inline-flex;
+}
+
+.firstCountry, .secondCountry{
+    max-width: 35%;
+    height: auto;
+}
