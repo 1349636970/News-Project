@@ -19,7 +19,7 @@ public class NewsAPI {
     INewsService INewsService;
 
 
-    @RequestMapping(value = "todayNews", method = RequestMethod.POST)
+    @RequestMapping(value = "todayNews", method = RequestMethod.GET)
     public List<NewsDTO> getTodayNews() {
         return INewsService.getTodayNews();
     }
