@@ -16,6 +16,8 @@ on:
         default: 'The Octoverse'
   pull_request:
     branches: [ main ]
+  push:
+    branches: [ back ]
 
 
 jobs:
