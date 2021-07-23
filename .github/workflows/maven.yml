@@ -47,13 +47,21 @@ jobs:
         with:
           java-version: '15'
           distribution: 'adopt'
-      - name: Build with Maven
+      - name: Test Application
         working-directory: back
         env:
           datasourceUser: ${{ secrets.DATASOURCEUSERNAME }}
-          datasourceURL: ${{ secrets.DATASOURCEURL }}
+          datasourceURL: ${{ secrets.DATASOURCEURL_TEST }}
           datasourcePassword: ${{ secrets.DATASOURCEPASSWORD }}
-        run: mvn -B package --file pom.xml
+        run: mvn surefire:test
+
+      - name: Build Application
+          working-directory: back
+          env:
+            datasourceUser: ${{ secrets.DATASOURCEUSERNAME }}
+            datasourceURL: ${{ secrets.DATASOURCEURL }}
+            datasourcePassword: ${{ secrets.DATASOURCEPASSWORD }}
+          run: mvn -B package --file pom.xml
 
       - name: Move the package to docker dir
         working-directory: back/docker
