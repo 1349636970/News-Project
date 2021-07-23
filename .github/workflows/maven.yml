@@ -80,5 +80,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-          datasourceURL=${{ secrets.DATASOURCEURL }},datasourceUser=${{ secrets.DATASOURCEUSERNAME }},datasourcePassword=${{ secrets.DATASOURCEPASSWORD }}
-
+          datasourceURL=${{ secrets.DATASOURCEURL }},datasourceUser=${{ secrets.DATASOURCEUSERNAME }},datasourcePassword=${{ secrets.DATASOURCEPASSWORD }},
