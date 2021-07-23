@@ -9,4 +9,4 @@ ARG datasourcePassword
 ENV datasourceURL=${datasourceURL} \
     datasourceUser=${datasourceUser} \
     datasourcePassword=${datasourcePassword}
-ENTRYPOINT java -jar application.jar --datasourceURL=${datasourceURL:} --datasourceUser=${datasourceUser} --datasourcePassword=${datasourcePassword}
+ENTRYPOINT java -jar application.jar --datasourceURL=${datasourceURL} --datasourceUser=${datasourceUser} --datasourcePassword=${datasourcePassword}
