@@ -79,4 +79,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: datasourceUser=${{ secrets.DATASOURCEUSERNAME }},datasourceURL=${{ secrets.DATASOURCEURL }},datasourcePassword=${{ secrets.DATASOURCEPASSWORD }}
+          build-args: |
+            datasourceUser=${{ secrets.DATASOURCEUSERNAME }}
+            datasourceURL=${{ secrets.DATASOURCEURL }}
+            datasourcePassword=${{ secrets.DATASOURCEPASSWORD }}
