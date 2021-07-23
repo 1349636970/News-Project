@@ -6,7 +6,7 @@ COPY ${JAR_FILE} application.jar
 ARG datasourceURL
 ARG datasourceUser
 ARG datasourcePassword
-ENV datasourceURL=$datasourceURL
-ENV datasourceUser=$datasourceUser
-ENV datasourcePassword=$datasourcePassword
-ENTRYPOINT java -jar application.jar datasourceURL=$datasourceURL datasourceUser=$datasourceUser datasourcePassword=$datasourcePassword
+ENV datasourceURL=${datasourceURL} \
+    datasourceUser=${datasourceUser} \
+    datasourcePassword=${datasourcePassword}
+ENTRYPOINT java -jar application.jar datasourceURL=${datasourceURL} datasourceUser=${datasourceUser} datasourcePassword=${datasourcePassword}
