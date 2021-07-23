@@ -56,12 +56,12 @@ jobs:
         run: mvn surefire:test
 
       - name: Build Application
-          working-directory: back
-          env:
-            datasourceUser: ${{ secrets.DATASOURCEUSERNAME }}
-            datasourceURL: ${{ secrets.DATASOURCEURL }}
-            datasourcePassword: ${{ secrets.DATASOURCEPASSWORD }}
-          run: mvn -B package --file pom.xml
+        working-directory: back
+        env:
+          datasourceUser: ${{ secrets.DATASOURCEUSERNAME }}
+          datasourceURL: ${{ secrets.DATASOURCEURL }}
+          datasourcePassword: ${{ secrets.DATASOURCEPASSWORD }}
+        run: mvn -B package --file pom.xml
 
       - name: Move the package to docker dir
         working-directory: back/docker
