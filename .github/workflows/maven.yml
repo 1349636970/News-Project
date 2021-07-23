@@ -47,13 +47,6 @@ jobs:
         with:
           java-version: '15'
           distribution: 'adopt'
-#      - name: Test Application
-#        working-directory: back
-#        env:
-#          datasourceUser: ${{ secrets.DATASOURCEUSERNAME }}
-#          datasourceURL: ${{ secrets.DATASOURCEURL_TEST }}
-#          datasourcePassword: ${{ secrets.DATASOURCEPASSWORD }}
-#        run: mvn surefire:test
 
       - name: Build Application
         working-directory: back
@@ -86,4 +79,5 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: [${{ secrets.DATASOURCEURL }},${{ secrets.DATASOURCEUSERNAME }},${{ secrets.DATASOURCEPASSWORD }}]
 
