@@ -24,7 +24,7 @@ import java.util.Map;
 @Service
 public class NewsSearchXINHUAImpl extends AbstractNewsDataService {
     @Override
-    public void dataFetch() {
+    public void dataFetch() throws ParserConfigurationException, IOException, SAXException {
     }
 
     public List<NewsDTO> dataFetch(String searchKeyWord) throws JsonProcessingException {
@@ -32,8 +32,8 @@ public class NewsSearchXINHUAImpl extends AbstractNewsDataService {
         ObjectMapper objectMapper = new ObjectMapper();
         List<NewsDTO> newsDTOS = new ArrayList<>();
         @SuppressWarnings("unchecked")
-        Map<String, List<Map<String,String>>> mapper = objectMapper.readValue(requestResult, Map.class);
-        List<Map<String, String>> dataList = mapper.get("result");
+        Map<String, Map<String,List<Map<String,String>>>> mapper = objectMapper.readValue(requestResult, Map.class);
+        List<Map<String, String>> dataList = mapper.get("content").get("results");
         dataList.forEach(
                 data -> {
                     NewsDTO news = new NewsDTO();

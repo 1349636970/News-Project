@@ -31,11 +31,11 @@ public class NewsSearchCBSImpl extends AbstractNewsDataService {
         List<NewsDTO> newsDTOS = new ArrayList<>();
         @SuppressWarnings("unchecked")
         Map<String, List<Map<String,String>>> mapper = objectMapper.readValue(requestResult, Map.class);
-        List<Map<String, String>> dataList = mapper.get("result");
+        List<Map<String, String>> dataList = mapper.get("items");
         dataList.forEach(
                 data -> {
                     NewsDTO news = new NewsDTO();
-                    news.setNewsMedia(NewsSearchSources.XINHUA.name());
+                    news.setNewsMedia(NewsSearchSources.CBS.name());
                     news.setNewsTitle(data.get("title"));
                     news.setNewsSources(data.get("link"));
                     news.setTime(stringToData(data.get("pubdate"),"MMM dd,yyyy"));
