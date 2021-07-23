@@ -80,7 +80,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-          ${{ secrets.DATASOURCEURL }}
-          ${{ secrets.DATASOURCEUSERNAME }}
-          ${{ secrets.DATASOURCEPASSWORD }}
+          datasourceURL=${{ secrets.DATASOURCEURL }}
+          datasourceUser=${{ secrets.DATASOURCEUSERNAME }}
+          datasourcePassword=${{ secrets.DATASOURCEPASSWORD }}
 
