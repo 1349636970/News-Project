@@ -4,8 +4,8 @@ ARG JAR_FILE=*.jar
 COPY ${JAR_FILE} application.jar
 #ENTRYPOINT ["java", "-jar", "application.jar","-DpropName=propValue"]
 ARG datasourceURL
-ARG datasourceUser
-ARG datasourcePassword
+ARG datasourceUser=test
+ARG datasourcePassword=test
 ENV datasourceURL=$datasourceURL
 ENV datasourceUser=$datasourceUser
 ENV datasourcePassword=$datasourcePassword
