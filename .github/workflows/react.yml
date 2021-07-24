@@ -45,4 +45,5 @@ jobs:
         with:
           context: front/docker
           push: true
+
           tags: a1349636970/news_project:front
