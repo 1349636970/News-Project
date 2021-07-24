@@ -1,4 +1,4 @@
-name: Deploy Project to Microsoft Azure
+name: Deploy Front Project to Microsoft Azure
 
 on:
   workflow_dispatch:
