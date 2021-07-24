@@ -93,7 +93,7 @@ jobs:
         working-directory: front
         run: npm install && npm run build
       - name: Move the package to docker dir
-        working-directory: front/docker
+        working-directory: front
         run: ls -a
 #        run: cp -r ../build .
       - name: Log in to Docker Hub
