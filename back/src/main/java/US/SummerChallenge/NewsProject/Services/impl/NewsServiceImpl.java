@@ -47,7 +47,8 @@ public class NewsServiceImpl implements INewsService {
             } catch (JsonProcessingException e) {
                 System.out.println(e.getMessage());
             }
-        } else if (firstCountry.equals("US") || secondCountry.equals("US")) {
+        }
+        if (firstCountry.equals("US") || secondCountry.equals("US")) {
             try {
                 result.add(newsSearchCBS.dataFetch(searchKeyWord));
             } catch (JsonProcessingException e) {

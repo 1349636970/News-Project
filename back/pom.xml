@@ -14,7 +14,7 @@
     <name>NewsProject</name>
     <description>This is a project for Summer Challenge</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>15</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -63,6 +63,7 @@
             <version>2.0.6</version>
         </dependency>
 
+
     </dependencies>
 
     <build>
@@ -87,6 +88,7 @@
                     <target>14</target>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

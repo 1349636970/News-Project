@@ -24,7 +24,7 @@ public class NewsAPI {
         return INewsService.getTodayNews();
     }
 
-    @RequestMapping(value = "queryByCountries", method = RequestMethod.GET)
+    @RequestMapping(value = "queryByCountries", method = RequestMethod.POST)
     public List<List<NewsDTO>> getNews(
             @RequestParam(name = "firstCountry")
             String firstCountry,
