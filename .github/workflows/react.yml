@@ -45,4 +45,4 @@ jobs:
         with:
           context: front/docker
           push: true
-          tags: front
+          tags: news_project/app:front
