@@ -16,9 +16,7 @@ on:
         default: 'The Octoverse'
   pull_request:
     branches: [ main ]
-    pull_request:
-      branches: [ main ]
-      types: [ closed ]
+    types: [ closed ]
 
 
 
