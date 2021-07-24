@@ -19,12 +19,12 @@ public class NewsAPI {
     INewsService INewsService;
 
 
-    @RequestMapping(value = "todayNews", method = RequestMethod.GET)
+    @RequestMapping(value = "todayNews", method = RequestMethod.POST)
     public List<NewsDTO> getTodayNews() {
         return INewsService.getTodayNews();
     }
 
-    @RequestMapping(value = "queryByCountries", method = RequestMethod.GET)
+    @RequestMapping(value = "queryByCountries", method = RequestMethod.POST)
     public List<List<NewsDTO>> getNews(
             @RequestParam(name = "firstCountry")
             String firstCountry,
