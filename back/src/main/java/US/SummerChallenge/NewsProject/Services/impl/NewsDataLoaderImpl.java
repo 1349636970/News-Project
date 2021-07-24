@@ -2,6 +2,7 @@ package US.SummerChallenge.NewsProject.Services.impl;
 
 import US.SummerChallenge.NewsProject.Services.INewsDataLoader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
@@ -36,7 +37,8 @@ public class NewsDataLoaderImpl implements INewsDataLoader {
     @Autowired
     XINHUANewsImpl xinhuaNews;
     @Override
-//    @PostConstruct
+    @PostConstruct
+    @Scheduled(cron = "0 0 6 * * ?")
     public void newsDataLoad() {
         try {
             cbsNews.dataFetch();
