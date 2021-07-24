@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Maven
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
-name: Deploy Project to Microsoft Azure
+name: Deploy Back Project to Microsoft Azure
 
 on:
   workflow_dispatch:
@@ -16,10 +16,12 @@ on:
         default: 'The Octoverse'
   pull_request:
     branches: [ main ]
+    types: [ closed ]
+
 
 
 jobs:
-  build:
+  back:
 
     runs-on: ubuntu-latest
 
@@ -75,9 +77,10 @@ jobs:
         with:
           context: back/docker
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: back
           build-args: |
             datasourceUser=${{ secrets.DATASOURCEUSERNAME }}
             datasourceURL=${{ secrets.DATASOURCEURL }}
             datasourcePassword=${{ secrets.DATASOURCEPASSWORD }}
+
+
