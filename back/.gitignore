@@ -34,3 +34,6 @@ build/
 
 ### dev config ###
 src/main/resources/application-dev.properties
+
+### docker ###
+docker/docker-compose.yml
