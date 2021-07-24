@@ -45,4 +45,5 @@ jobs:
         with:
           context: front/docker
           push: true
-          tags: front
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

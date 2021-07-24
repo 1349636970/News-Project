@@ -77,7 +77,8 @@ jobs:
         with:
           context: back/docker
           push: true
-          tags: back
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             datasourceUser=${{ secrets.DATASOURCEUSERNAME }}
             datasourceURL=${{ secrets.DATASOURCEURL }}
