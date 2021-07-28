@@ -1,29 +1,24 @@
 import React, {useState} from 'react';
 import './CompareNews.css';
 import { Multiselect } from 'multiselect-react-dropdown';
+import CardItem from '../CardItem';
+
+
 
 
 function CompareNews() {
-   
+   const [show, setShow] = useState(false)
 
     
 let newsList = [
-    { country: 'Mauritius',name:'Mauritius Times', },
-    { country: 'Seychelles', name: 'Seychelles Nation'},
-    { country: 'Hong Kong', name: 'South China Morning Post'},
-    { country: 'Singapore', name: 'The Straits Times'},
-    { country: 'Australia', name: 'The Australian'},
-    { country: 'New Zealand', name: 'The New Zealand Herald'},
-    { country: 'Norway', name: 'Aftenposten'},
-    { country: 'Switzerland', name: ''},
-    { country: 'Canada', name: 'The Globe and Mail'},
-    { country: 'United States of America', name: 'USA Today'},
-    { country: 'Chile', name: 'The Santiago Times'},
-    { country: 'Argentina', name: 'Buenos Aires Times'}
+    { country: 'China',name:'Xinhua', },
+    { country: 'Nepal', name: 'The Himalayan Times'},
+    { country: 'United States of America', name: 'CBS News'}
  ];
   
-const [options] =useState(newsList); 
- 
+const [options] =useState(newsList);
+
+
 
     return (
         <>
@@ -31,34 +26,25 @@ const [options] =useState(newsList);
             <h1>Compare News</h1>
         </div>
         <div className='description'>
-            <p><strong>Countries:</strong> Mauritius, Seychelles, Hong Kong, 
-             Singapore, Australia,New Zealand, Norway, Switzerland, Canada, United States of America, 
-             Chile, Argentina
+            <p><strong>Countries:</strong> China, Nepal, United States of America
              <br></br>
              <br></br>
-            <strong>Respective Newspaper:</strong> Mauritius Times, Seychelles Nation, South China Morning Post, 
-    The Straits Times, The Australian, The New Zealand Herald, Aftenposten, '', The Globe and Mail, 
-    USA Today, The Santiago Times, Buenos Aires Times
+            <strong>Respective Newspaper:</strong> Xinhua, The Himalayan Times, CBS News
             </p>
         </div>
 
         <div className='main'>
 
         <div className='search-container'>
-        <form action='./SearchResult.js' method='get' role='search' className='search-form' target='_blank'>
+        
         <div className='keyword-container'>
             <div className='keyword'>
             <h2> Keyword: </h2>
             </div>
-            
-            
-                
-                <input autoComplete='off' name='q' placeholder='Enter a keyword' title='Enter a keyword' type='text' />
+           
+            <input autoComplete='off' name='q' placeholder='Enter a keyword' title='Enter a keyword' type='text' />
                 <script async src="https://cse.google.com/cse.js?cx=0e73f5a259cd2c4b2"></script>
             <div className='gcse-searchresults-only'></div>
-            
-            
-           
             </div>
         
 
@@ -69,13 +55,43 @@ const [options] =useState(newsList);
                    <Multiselect options={options} displayValue='country' selectionLimit='2'/>
                 </div>
 
+                
+
+            
             <button type='submit'
-            className='searchbtn' >Search</button>
+            className='searchbtn' onClick={() => setShow(!show)}> Search  </button> 
         
         </div>
-        </form>
+        
         </div>
         </div>
+
+        {
+            show?<div className='cards'>
+            <div className='cards__container'>
+                <div className='cards__wrapper'>
+                    <ul className='cards__items'>
+                        <CardItem 
+                        path='/'
+                        
+                        text=''
+                        summary='' 
+                        />
+                        
+                        <CardItem 
+                        path='https://english.cctv.com/2021/07/21/ARTIVvpqMxP0oCZB7rjfRClo210721.shtml'
+                        
+                        text="Xi's analogies about upholding multilateralism"
+                        summary='Chinese President Xi Jinping has been championing multilateralism on different international occasions, urging global determinations and actions through apt analogies to remove barriers and seek integration.' />
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>:null
+        }
+
+       
+        
         
 
 

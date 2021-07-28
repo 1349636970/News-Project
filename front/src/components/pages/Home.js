@@ -8,6 +8,8 @@ import Banner from '../Banner';
 
 
 function Home() {
+  
+    
   return (
     <>
       

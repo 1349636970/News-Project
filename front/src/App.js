@@ -8,7 +8,6 @@ import Health from './components/pages/Health';
 import InternationalRelations from './components/pages/InternationalRelations';
 import CompareNews from './components/pages/CompareNews';
 import Footer from "./components/Footer";
-import SearchResult from './components/SearchResult';
 
 
 
@@ -24,7 +23,6 @@ function App() {
         <Route path='/health' component={Health} />
         <Route path='/internationalrelations' component={InternationalRelations} />
         <Route path='/comparenews' component={CompareNews} />
-        <Route path='/searchresult' component={SearchResult} />
       </Switch>
       <Footer />
       
