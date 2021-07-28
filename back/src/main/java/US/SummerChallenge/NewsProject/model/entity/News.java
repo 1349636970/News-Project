@@ -37,4 +37,6 @@ public class News {
     private Date time;
     @Column(name = "NewsMedia")
     private String newsMedia;
+    @Column(name = "Country")
+    private String country;
 }

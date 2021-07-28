@@ -9,12 +9,12 @@ import lombok.Getter;
 @Getter
 public enum NewsDataSources {
     CCTV("https://api.cntv.cn/NewArticle/getArticleListByPageId?serviceId=pcenglish&id=PAGE1394789601117162&n=20&t=jsonp&cb=Callback"),
-    CBS("https://www.cbsnews.com/world/"),
+    CBS("https://www.cbsnews.com/latest/rss/world"),
     XINHUA("http://www.xinhuanet.com/english/world/index.htm"),
-    PEOPLE("http://en.people.cn/90777/"),
+    PEOPLE("http://en.people.cn/rss/90777.xml"),
     USTODAY("https://www.usatoday.com/news/world/"),
-    NYTIME("https://www.nytimes.com/section/world"),
-    THEHIMALAYANTIMES("https://thehimalayantimes.com/world"),
+    NYTIME("https://rss.nytimes.com/services/xml/rss/nyt/World.xml"),
+    THEHIMALAYANTIMES("https://thehimalayantimes.com/rssFeed/27"),
     KATHMANDUPOST("https://kathmandupost.com/national"),
     REPUBLICA("https://myrepublica.nagariknetwork.com/")
     ;
