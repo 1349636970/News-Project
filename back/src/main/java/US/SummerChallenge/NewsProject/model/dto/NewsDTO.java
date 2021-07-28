@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * @Author: Zhenyu Lin
@@ -18,5 +19,7 @@ public class NewsDTO {
     private String newsImage;
     private String newsSummary;
     private String newsTag;
-    private LocalDate time;
+    private String newsMedia;
+    private String country;
+    private Date time;
 }
