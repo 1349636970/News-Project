@@ -5,9 +5,10 @@ function Banner() {
     return (
         <div className='banner-container'>
             <div className='banner-text'>
-                <p>In Focus: Top two countries with highest HDI from each continent.</p>
-                <p>Data Source: 2020 Human Development Report</p>
-                <p> Published by UNDP</p>
+                <p>In Focus: China, Nepal, United States of America</p>
+                <p>China: Xinhua, CCTV News, People's Daily China</p>
+                <p>Nepal: The Himalayan Times, The Kathmandu Post, Republica</p>
+                <p>USA: USA Today, CBS News, The New York Times</p>
             </div>
 
          </div>

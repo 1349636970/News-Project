@@ -13,17 +13,22 @@ function Cards() {
                 <div className='cards__wrapper'>
                     <ul className='cards__items'>
                         <CardItem 
-                        src='images/img-1.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='Mauritis Times'
-                        path='/' />
+                        path='/'
+                        label='Xinhua'
+                        text=''
+                        summary='' 
+                        />
+                        
                         <CardItem 
-                        src='images/img-2.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='Nation'
-                        path='/' />
+                        path='https://english.cctv.com/2021/07/21/ARTIVvpqMxP0oCZB7rjfRClo210721.shtml'
+                        label='CCTV News'
+                        text="Xi's analogies about upholding multilateralism"
+                        summary='Chinese President Xi Jinping has been championing multilateralism on different international occasions, urging global determinations and actions through apt analogies to remove barriers and seek integration.' />
+                        <CardItem 
+                        path='/'
+                        label="People's Daily China"
+                        text=''
+                        summary=''  />
                     </ul>
                 </div>
             </div>
@@ -32,17 +37,20 @@ function Cards() {
                 <div className='cards__wrapper'>
                     <ul className='cards__items'>
                         <CardItem 
-                        src='images/img-1.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='South China Morning Post'
-                        path='/' />
+                        path='/'
+                        label='The Himalayan Times'
+                        text=''
+                        summary=''  />
                         <CardItem 
-                        src='images/img-2.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='The Straits Times'
-                        path='/' />
+                        path='/'
+                        label='The Kathmandu Post'
+                        text=''
+                        summary=''  />
+                        <CardItem 
+                        path='/'
+                        label='Republica'
+                        text=''
+                        summary='' />
                     </ul>
                 </div>
             </div>
@@ -51,74 +59,20 @@ function Cards() {
                 <div className='cards__wrapper'>
                     <ul className='cards__items'>
                         <CardItem 
-                        src='images/img-1.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='The Australian'
-                        path='/' />
-                        <CardItem 
-                        src='images/img-2.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='The New Zealand Herald'
-                        path='/' />
-                    </ul>
-                </div>
-            </div>
-
-            <div className='cards__container'>
-                <div className='cards__wrapper'>
-                    <ul className='cards__items'>
-                        <CardItem 
-                        src='images/img-1.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='Aftenposten'
-                        path='/' />
-                        <CardItem 
-                        src='images/img-2.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='-- Switzerland ko news'
-                        path='/' />
-                    </ul>
-                </div>
-            </div>
-
-            <div className='cards__container'>
-                <div className='cards__wrapper'>
-                    <ul className='cards__items'>
-                        <CardItem 
-                        src='images/img-1.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='The Globe and Mail'
-                        path='/' />
-                        <CardItem 
-                        src='images/img-2.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
+                        path='/'
                         label='USA Today'
-                        path='/' />
-                    </ul>
-                </div>
-            </div>
-
-            <div className='cards__container'>
-                <div className='cards__wrapper'>
-                    <ul className='cards__items'>
+                        text=''
+                        summary=''  />
                         <CardItem 
-                        src='images/img-1.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='The Santiago Times'
-                        path='/' />
+                        path='https://www.cbsnews.com/video/covid19-delta-variant-80-percent-of-new-cases/'
+                        label='CBS News'
+                        text='Delta variant now accounts for more than 80% of COVID cases'
+                        summary='COVID cases are rising across the U.S., fueled by the highly contagious Delta variant. Florida is among the states preparing for the worst. Manuel Bojorquez takes a look.'  />
                         <CardItem 
-                        src='images/img-2.jpg'
-                        text='Lorem ipsum dolor sit amet. 
-                        Qui atque aliquam et ullam libero ad perferendis fugit.'
-                        label='Buenos Aires Herald'
-                        path='/' />
+                        path='https://www.nytimes.com/2021/07/20/health/coronavirus-johnson-vaccine-delta.html'
+                        label='The New York Times'
+                        text='J.&J. Vaccine May Be Less Effective Against Delta, Study Suggests'
+                        summary='Many who received the shot may need to consider boosters, the authors said. But federal health officials do not recommend second doses.'  />
                     </ul>
                 </div>
             </div>
