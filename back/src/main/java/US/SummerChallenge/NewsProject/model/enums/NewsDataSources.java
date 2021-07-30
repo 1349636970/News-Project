@@ -36,7 +36,6 @@ public enum NewsDataSources {
     public String getLink() {
         return switch (this.name()) {
             case "CCTV" -> this.link+"&p=1";
-            case "PEOPLE" -> this.link+"index.html";
             default -> this.link;
         };
     }

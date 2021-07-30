@@ -77,11 +77,7 @@ jobs:
         with:
           context: back/docker
           push: true
-
           tags: a1349636970/news_project:back
-
-
-
           build-args: |
             datasourceUser=${{ secrets.DATASOURCEUSERNAME }}
             datasourceURL=${{ secrets.DATASOURCEURL }}
