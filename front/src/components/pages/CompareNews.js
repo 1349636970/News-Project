@@ -1,22 +1,43 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect } from 'react';
 import './CompareNews.css';
 import { Multiselect } from 'multiselect-react-dropdown';
 import CardItem from '../CardItem';
 
+const fetchNews = async () => {
+    const news_ = await fetch('https://newsproject.azurewebsites.net/api/queryByCountries', {
+        mode: 'cors',
+        method: 'post',
+    });
 
+    const newsItems = await news_.json();
+    return newsItems;
+};
 
 
 function CompareNews() {
+
+    const [news, setNews] = useState([]);
+    useEffect(() => {
+        async function exec() {
+            console.log('Getting news');
+            const newsFetched = await fetchNews();
+            console.log(newsFetched);
+            setNews(newsFetched);
+        }
+        exec();
+    }, news);
+
+
    const [show, setShow] = useState(false)
 
+        
+    let newsList = [
+        { country: 'China',name:'Xinhua' },
+        { country: 'Nepal', name: 'The Himalayan Times'},
+        { country: 'United States of America', name: 'CBS News'}
+    ];
     
-let newsList = [
-    { country: 'China',name:'Xinhua', },
-    { country: 'Nepal', name: 'The Himalayan Times'},
-    { country: 'United States of America', name: 'CBS News'}
- ];
-  
-const [options] =useState(newsList);
+    const [options] =useState(newsList);
 
 
 
