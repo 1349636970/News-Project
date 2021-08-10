@@ -33,6 +33,9 @@ public abstract class AbstractNewsDataService {
 
     public abstract void dataFetch() throws ParserConfigurationException, IOException, SAXException;
 
+    protected Date stringToData() {
+        return new Date();
+    };
     protected Date stringToData(String string, String pattern) {
         SimpleDateFormat sdf = new SimpleDateFormat(pattern, Locale.ENGLISH);
         Date result;
@@ -40,7 +43,7 @@ public abstract class AbstractNewsDataService {
             result = sdf.parse(string);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
-            result = new Date(0);
+            result = new Date();
         }
         return result;
     }
@@ -54,10 +57,10 @@ public abstract class AbstractNewsDataService {
                 date = format.parse(m.group(0));
             } catch (ParseException e) {
                 System.out.println(e.getMessage());
-                date = new Date(0);
+                date = new Date();
             }
         } else {
-            date = new Date(0);
+            date = new Date();
         }
 
         return date;

@@ -24,6 +24,8 @@ public class NewsServiceImpl implements INewsService {
     NewsSearchXINHUAImpl newsSearchXINHUA;
     @Autowired
     NewsSearchCBSImpl newsSearchCBS;
+    @Autowired
+    NewsSearchTHEHIMALAYANTIMESImpl newsSearchTHEHIMALAYANTIMES;
     @Override
     public List<NewsDTO> getTodayNews() {
         Specification<News> spec = (Specification<News>) (root, criteriaQuery, criteriaBuilder) -> {
@@ -54,6 +56,10 @@ public class NewsServiceImpl implements INewsService {
             } catch (JsonProcessingException e) {
                 System.out.println(e.getMessage());
             }
+        }
+
+        if (firstCountry.equals("NPL") || secondCountry.equals("NPL")) {
+            result.add(newsSearchTHEHIMALAYANTIMES.dataFetch(searchKeyWord));
         }
         return result;
     }
