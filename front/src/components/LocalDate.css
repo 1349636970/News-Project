@@ -1,0 +1,15 @@
+.date{
+    width: 100%;
+    background-color: #dcdcdc;
+    color: #000000;
+    padding-top: 5px;
+    height: 45px;
+}
+
+input {
+    padding-left: 30px;
+    vertical-align: middle;
+    font-size: 26px;
+    border-style: none;
+    background-color: transparent;
+}
