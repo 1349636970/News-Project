@@ -40,9 +40,10 @@ function Cards() {
             <div className='cards__container'>
                 <div className='cards__wrapper'>
                     <ul className='cards__items'>
-                    {cardsFetched ? cardsFetched.filter((news) => (
-                    <CardItem props={news} key={news.newsMedia} />
-                     ))
+                    {cardsFetched ? cardsFetched.filter(news => news.newsMedia == 'Xinhua' 
+                    (<CardItem props={news} />)
+                    
+                    )
                     : "Loading"}
                         
                         <CardItem 
