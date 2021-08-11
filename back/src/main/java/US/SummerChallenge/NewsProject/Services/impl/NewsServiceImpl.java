@@ -7,10 +7,15 @@ import US.SummerChallenge.NewsProject.model.entity.News;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 /**
  * @Author: Zhenyu Lin
@@ -26,18 +31,30 @@ public class NewsServiceImpl implements INewsService {
     NewsSearchCBSImpl newsSearchCBS;
     @Autowired
     NewsSearchTHEHIMALAYANTIMESImpl newsSearchTHEHIMALAYANTIMES;
+
     @Override
     public List<NewsDTO> getTodayNews() {
         Specification<News> spec = (Specification<News>) (root, criteriaQuery, criteriaBuilder) -> {
             Date today = new Date();
-            Calendar calendar=Calendar.getInstance();
-            calendar.set(Calendar.HOUR_OF_DAY,-24);
-            Date yesterdayDate=calendar.getTime();
-            return criteriaBuilder.and(criteriaBuilder.lessThan(root.get("time"),today),criteriaBuilder.greaterThan(root.get("time"),yesterdayDate));
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.HOUR_OF_DAY, -24);
+            Date yesterdayDate = calendar.getTime();
+            return criteriaBuilder.and(criteriaBuilder.lessThan(root.get("time"), today), criteriaBuilder.greaterThan(root.get("time"), yesterdayDate));
         };
 
-        List<News> news = newsRepository.findAll(spec);
+        List<News> news = new ArrayList<>();
+        newsRepository.findAll(spec)
+                .stream()
+                .filter(distinctByKey(News::getNewsMedia))
+                .forEach(
+                        news::add
+                );
         return convertFromEntity(news);
+    }
+
+    private static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
     }
 
     @Override
@@ -65,13 +82,12 @@ public class NewsServiceImpl implements INewsService {
     }
 
 
-
     private List<NewsDTO> convertFromEntity(List<News> newsList) {
         List<NewsDTO> result = new ArrayList<>();
         newsList.forEach(
                 news -> {
                     NewsDTO newsDTO = new NewsDTO();
-                    BeanUtils.copyProperties(news,newsDTO);
+                    BeanUtils.copyProperties(news, newsDTO);
                     result.add(newsDTO);
                 }
         );

@@ -36,12 +36,17 @@ public class THEHIMALAYANTIMESNewsImpl extends AbstractNewsDataService {
             Element nNode = (Element) nList.item(i);
             News news = new News();
             news.setNewsTitle(
-                    regex(nNode.getElementsByTagName("title").item(0).getTextContent(),"(?<=\\<\\!\\[CDATA\\[).+(?=\\]\\]\\>)")
+                    nNode.getElementsByTagName("title").item(0).getTextContent()
+//                    regex(nNode.getElementsByTagName("title").item(0).getTextContent(),"(?<=\\<\\!\\[CDATA\\[).+(?=\\]\\]\\>)")
             );
             news.setNewsSources(
-                    regex(nNode.getElementsByTagName("link").item(0).getTextContent(),"(?<=\\<\\!\\[CDATA\\[).+(?=\\]\\]\\>)"));
+                    nNode.getElementsByTagName("link").item(0).getTextContent()
+//                    regex(nNode.getElementsByTagName("link").item(0).getTextContent(),"(?<=\\<\\!\\[CDATA\\[).+(?=\\]\\]\\>)"));
+            );
             news.setNewsSummary(
-                    regex(nNode.getElementsByTagName("description").item(0).getTextContent(),"(?<=\\<\\!\\[CDATA\\[).+(?=\\]\\]\\>)"));
+                    nNode.getElementsByTagName("description").item(0).getTextContent()
+            );
+//                    regex(nNode.getElementsByTagName("description").item(0).getTextContent(),"(?<=\\<\\!\\[CDATA\\[).+(?=\\]\\]\\>)"));
             news.setTime(stringToData(nNode.getElementsByTagName("pubDate").item(0).getTextContent(), "EEE, dd MMM yyyy HH:mm:ss Z"));
             news.setNewsMedia(NewsDataSources.THEHIMALAYANTIMES.name());
             news.setCountry("NP");
