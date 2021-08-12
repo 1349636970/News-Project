@@ -26,19 +26,19 @@ public class NewsAPI {
 
     @RequestMapping(value = "queryByCountries", method = RequestMethod.POST)
     public List<List<NewsDTO>> getNews(
-            @RequestParam(name = "firstCountry")
+            @RequestBody
             String firstCountry,
-            @RequestParam(name = "secondCountry")
+            @RequestBody
             String secondCountry,
-            @RequestParam(name = "seachKeyWord")
+            @RequestBody
             String searchKeyWord
     ) {
         return INewsService.getNewsBetween(firstCountry,secondCountry,searchKeyWord);
     }
 
-    @RequestMapping(value = "test", method = RequestMethod.GET)
+    @RequestMapping(value = "test", method = RequestMethod.POST)
     public LocalDate test(
-            @RequestParam(name = "date")
+            @RequestBody
             @DateTimeFormat(pattern = "yyyy-MM-dd")
             LocalDate date
     ) {
