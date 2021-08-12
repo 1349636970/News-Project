@@ -13,6 +13,7 @@ import java.util.List;
  * @Author: Zhenyu Lin
  * @Date: 2021/6/29 0:31
  **/
+@CrossOrigin
 @RestController
 public class NewsAPI {
     @Autowired
@@ -26,11 +27,11 @@ public class NewsAPI {
 
     @RequestMapping(value = "queryByCountries", method = RequestMethod.POST)
     public List<List<NewsDTO>> getNews(
-            @RequestBody
+            @RequestParam(name = "firstCountry")
             String firstCountry,
-            @RequestBody
+            @RequestParam(name = "secondCountry")
             String secondCountry,
-            @RequestBody
+            @RequestParam(name = "searchKeyWord")
             String searchKeyWord
     ) {
         return INewsService.getNewsBetween(firstCountry,secondCountry,searchKeyWord);
@@ -38,7 +39,7 @@ public class NewsAPI {
 
     @RequestMapping(value = "test", method = RequestMethod.POST)
     public LocalDate test(
-            @RequestBody
+            @RequestParam(name = "date")
             @DateTimeFormat(pattern = "yyyy-MM-dd")
             LocalDate date
     ) {
