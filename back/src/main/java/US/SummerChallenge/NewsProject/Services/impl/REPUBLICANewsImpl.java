@@ -38,7 +38,7 @@ public class REPUBLICANewsImpl extends AbstractNewsDataService {
                     news.setNewsImage(Objects.requireNonNull(newsMapper.selectFirst("a > figure > img")).attr("src"));
                     news.setNewsTitle(Objects.requireNonNull(newsMapper.selectFirst("div.container > a > div > h2")).text());
                     news.setNewsSummary(Objects.requireNonNull(newsMapper.selectFirst("div.container > a > div > p")).text());
-                    news.setTime(new Date(0));
+                    news.setTime(new Date());
                     news.setCountry("NP");
                     newsList.add(news);
                 }

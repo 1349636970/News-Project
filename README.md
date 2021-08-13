@@ -1,2 +1,2 @@
 # News-Project
-This project is for SFSCP 2021. San Francisco Summer Challenge Program. This website collects news data from Chinese websites, American websites, Nepal websites, and other countries. Then we put the news that reports similar topics side by side compare. The readers are able to get the information variously.
+This project is for SFSCP 2021, San Francisco Summer Challenge Program. This website collects news data from Chinese websites, American websites, Nepal websites, and other countries. Then we put the news that reports similar topics side by side compare. The readers are able to get the information variously.

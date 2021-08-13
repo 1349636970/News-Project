@@ -37,7 +37,8 @@ public class PEOPLENewsImpl extends AbstractNewsDataService {
             Element nNode = (Element) nList.item(i);
             News news = new News();
             news.setNewsTitle(
-                    regex(nNode.getElementsByTagName("title").item(0).getTextContent(),"(?<=\\<\\!\\[CDATA\\[).+(?=\\]\\]\\>)")
+                    nNode.getElementsByTagName("title").item(0).getTextContent()
+//                    regex(nNode.getElementsByTagName("title").item(0).getTextContent(),"(?<=\\<\\!\\[CDATA\\[).+(?=\\]\\]\\>)")
             );
             news.setNewsSources(nNode.getElementsByTagName("link").item(0).getTextContent());
             news.setTime(stringToData(nNode.getElementsByTagName("pubDate").item(0).getTextContent(), "EEE, dd MMM yyyy HH:mm:ss Z"));

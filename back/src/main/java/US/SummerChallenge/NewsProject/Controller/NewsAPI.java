@@ -18,7 +18,6 @@ public class NewsAPI {
     @Autowired
     INewsService INewsService;
 
-
     @RequestMapping(value = "todayNews", method = RequestMethod.POST)
     public List<NewsDTO> getTodayNews() {
         return INewsService.getTodayNews();
@@ -30,13 +29,13 @@ public class NewsAPI {
             String firstCountry,
             @RequestParam(name = "secondCountry")
             String secondCountry,
-            @RequestParam(name = "seachKeyWord")
+            @RequestParam(name = "searchKeyWord")
             String searchKeyWord
     ) {
         return INewsService.getNewsBetween(firstCountry,secondCountry,searchKeyWord);
     }
 
-    @RequestMapping(value = "test", method = RequestMethod.GET)
+    @RequestMapping(value = "test", method = RequestMethod.POST)
     public LocalDate test(
             @RequestParam(name = "date")
             @DateTimeFormat(pattern = "yyyy-MM-dd")

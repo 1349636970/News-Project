@@ -36,7 +36,7 @@ public class KATHMANDUPOSTNewsImpl extends AbstractNewsDataService {
                     news.setNewsImage(Objects.requireNonNull(newsMapper.selectFirst("div.image > figure > a > img")).attr("data-src"));
                     news.setNewsTitle(Objects.requireNonNull(newsMapper.selectFirst("a > h3")).text());
                     news.setNewsSummary(Objects.requireNonNull(newsMapper.selectFirst("p")).text());
-                    news.setTime(new Date(0));
+                    news.setTime(new Date());
                     news.setCountry("NP");
                     newsList.add(news);
                 }
