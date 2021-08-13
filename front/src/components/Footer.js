@@ -8,7 +8,7 @@ function Footer() {
      <>
     <div className='footer-container'>
       <h1>Prudence</h1>
-      <small class='website-rights'>Prudence © 2021</small>
+      <small className='website-rights'>Prudence © 2021</small>
        
     </div>
     </>

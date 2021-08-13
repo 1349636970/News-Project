@@ -7,7 +7,7 @@ var datetime = () => {
     var displaytodaysdate=showdate.toDateString();
     return(
         <div className='date'>
-            <input type='text' value={displaytodaysdate} readOnly='true' />
+            <input type='text' value={displaytodaysdate}  />
         </div>
     );
 }

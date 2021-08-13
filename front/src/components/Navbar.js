@@ -15,7 +15,7 @@ function Navbar() {
           </div>
           <nav className = 'navbar'>
           <div className = 'navbar-container'>
-            <Link path = '/' className = 'navbar-logo' onClick={closeMobileMenu}>
+            <Link to = '/' className = 'navbar-logo' onClick={closeMobileMenu}>
                 Prudence
             </Link>
             <div className = 'menu-icon' onClick={handleClick}>
