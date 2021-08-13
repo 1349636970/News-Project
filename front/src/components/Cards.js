@@ -2,6 +2,8 @@ import React, {useState, useEffect } from 'react';
 import CardItem from './CardItem';
 import './Cards.css';
 
+
+
 const fetchCards = async () => {
     const cards123 = await fetch('http://newsproject.azurewebsites.net/api/todayNews', {
         mode: 'cors',
@@ -22,17 +24,27 @@ function Cards() {
         async function exec() {
             console.log('Before request');
             const cardsFetched = await fetchCards();
-            console.log(cardsFetched);
             setCards(cardsFetched);
         }
         exec();
     }, cards);
 
-    const cardsFetched = useEffect.cardsFetched //.filter ((newsMedia) => {props.newsMedia});
      
+    /* let newsItem = ("Loading");
+    if (cards) {
+    let filteredCards = cards.filter(news => news.newsMedia === "XINHUA");
+    
+    if (filteredCards.length > 0) {
+        newsItem = (<CardItem props={filteredCards[0]} />);
+       console.log(newsItem); 
+    }
+    }  */
+    
+    
 
     return (
         <>
+
         <div className='heading'>
             <h1>Top News </h1>
         </div>
@@ -40,23 +52,33 @@ function Cards() {
             <div className='cards__container'>
                 <div className='cards__wrapper'>
                     <ul className='cards__items'>
-                    {cardsFetched ? cardsFetched.filter(news => news.newsMedia == 'Xinhua' 
-                    (<CardItem props={news} />)
-                    
-                    )
-                    : "Loading"}
-                        
-                        <CardItem 
-                        newsSources='https://english.cctv.com/2021/07/21/ARTIVvpqMxP0oCZB7rjfRClo210721.shtml'
-                        newsMedia='CCTV News'
-                        newsTitle="Xi's analogies about upholding multilateralism"
-                        newsSummary='Chinese President Xi Jinping has been championing multilateralism on different international occasions, urging global determinations and actions through apt analogies to remove barriers and seek integration.' 
+                      {cards.filter(news => news.newsMedia === "XINHUA").map(todayNews => 
+                       <CardItem 
+                        newsSources={todayNews.newsSources}
+                        newsMedia= {todayNews.newsMedia}
+                        newsTitle={todayNews.newsTitle}
+                        newsSummary={todayNews.newsSummary}
                         />
+                      )}
+                      
+                        
+                      {cards.filter(news => news.newsMedia === "CCTV").map(todayNews => 
                         <CardItem 
-                        newsSources='/'
-                        newsMedia="People's Daily China"
-                        newsTitle=''
-                        newsSummary=''  />
+                        newsSources={todayNews.newsSources}
+                        newsMedia={todayNews.newsMedia}
+                        newsTitle={todayNews.newsTitle}
+                        newsSummary={todayNews.newsSummary}
+                        />
+                      )}
+                        {cards.filter(news => news.newsMedia === "PEOPLE").map(todayNews => 
+                        <CardItem 
+                        newsSources={todayNews.newsSources}
+                        newsMedia={todayNews.newsMedia}
+                        newsTitle={todayNews.newsTitle}
+                        newsSummary={todayNews.newsSummary}
+                        />
+                      )}
+                        
                     </ul>
                 </div>
             </div>
@@ -64,21 +86,30 @@ function Cards() {
             <div className='cards__container'>
                 <div className='cards__wrapper'>
                     <ul className='cards__items'>
+                    {cards.filter(news => news.newsMedia === "THEHIMALAYANTIMES").map(todayNews => 
                         <CardItem 
-                        newsSources='/'
-                        newsMedia='The Himalayan Times'
-                        newsTitle=''
-                        newsSummary=''  />
+                        newsSources={todayNews.newsSources}
+                        newsMedia={todayNews.newsMedia}
+                        newsTitle={todayNews.newsTitle}
+                        newsSummary={todayNews.newsSummary}
+                        />
+                      )}
+                        {cards.filter(news => news.newsMedia === "KATHMANDUPOST").map(todayNews => 
                         <CardItem 
-                        newsSources='/'
-                        newsMedia='The Kathmandu Post'
-                        newsTitle=''
-                        newsSummary=''  />
+                        newsSources={todayNews.newsSources}
+                        newsMedia={todayNews.newsMedia}
+                        newsTitle={todayNews.newsTitle}
+                        newsSummary={todayNews.newsSummary}
+                        />
+                      )}
+                        {cards.filter(news => news.newsMedia === "REPUBLICA").map(todayNews => 
                         <CardItem 
-                        newsSources='/'
-                        newsMedia='Republica'
-                        newsTitle=''
-                        newsSummary='' />
+                        newsSources={todayNews.newsSources}
+                        newsMedia={todayNews.newsMedia}
+                        newsTitle={todayNews.newsTitle}
+                        newsSummary={todayNews.newsSummary}
+                        />
+                      )}
                     </ul>
                 </div>
             </div>
@@ -86,21 +117,32 @@ function Cards() {
             <div className='cards__container'>
                 <div className='cards__wrapper'>
                     <ul className='cards__items'>
+                    {cards.filter(news => news.newsMedia === "USATODAY").map(todayNews => 
                         <CardItem 
-                        newsSources='/'
-                        newsMedia='USA Today'
-                        newsTitle=''
-                        newsSummary=''  />
+                        newsSources={todayNews.newsSources}
+                        newsMedia={todayNews.newsMedia}
+                        newsTitle={todayNews.newsTitle}
+                        newsSummary={todayNews.newsSummary}
+                        />
+                      )}
+
+                        {cards.filter(news => news.newsMedia === "CBS").map(todayNews => 
                         <CardItem 
-                        newsSources='https://www.cbsnews.com/video/covid19-delta-variant-80-percent-of-new-cases/'
-                        newsMedia='CBS News'
-                        newsTitle='Delta variant now accounts for more than 80% of COVID cases'
-                        newsSummary='COVID cases are rising across the U.S., fueled by the highly contagious Delta variant. Florida is among the states preparing for the worst. Manuel Bojorquez takes a look.'  />
+                        newsSources={todayNews.newsSources}
+                        newsMedia= {todayNews.newsMedia}
+                        newsTitle={todayNews.newsTitle}
+                        newsSummary={todayNews.newsSummary}
+                        />
+                      )}
+
+                        {cards.filter(news => news.newsMedia === "NYTIME").map(todayNews => 
                         <CardItem 
-                        newsSources='https://www.nytimes.com/2021/07/20/health/coronavirus-johnson-vaccine-delta.html'
-                        newsMedia='The New York Times'
-                        newsTitle='J.&J. Vaccine May Be Less Effective Against Delta, Study Suggests'
-                        newsSummary='Many who received the shot may need to consider boosters, the authors said. But federal health officials do not recommend second doses.'  />
+                        newsSources={todayNews.newsSources}
+                        newsMedia= {todayNews.newsMedia}
+                        newsTitle={todayNews.newsTitle}
+                        newsSummary={todayNews.newsSummary}
+                        />
+                      )}
                     </ul>
                 </div>
             </div>

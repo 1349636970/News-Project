@@ -21,11 +21,15 @@ h1 {
 
 .cards__container {
   display: flex;
-  flex-flow: column;
+  /* flex-flow: column; */
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   max-width: 1120px;
   width: 90%;
   margin: 0 auto;
+  
 }
 
 .cards__wrapper {
@@ -35,6 +39,19 @@ h1 {
 
 .cards__items {
   margin-bottom: 24px;
+
+}
+
+.cards__news__items {
+  display: flex;
+  /* flex-flow: column; */
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1120px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .cards__item {
