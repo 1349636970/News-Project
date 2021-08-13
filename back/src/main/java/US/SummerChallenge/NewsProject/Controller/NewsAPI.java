@@ -13,18 +13,18 @@ import java.util.List;
  * @Author: Zhenyu Lin
  * @Date: 2021/6/29 0:31
  **/
-@CrossOrigin
 @RestController
 public class NewsAPI {
     @Autowired
     INewsService INewsService;
 
-
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "todayNews", method = RequestMethod.POST)
     public List<NewsDTO> getTodayNews() {
         return INewsService.getTodayNews();
     }
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "queryByCountries", method = RequestMethod.POST)
     public List<List<NewsDTO>> getNews(
             @RequestParam(name = "firstCountry")
