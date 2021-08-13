@@ -18,13 +18,11 @@ public class NewsAPI {
     @Autowired
     INewsService INewsService;
 
-    @CrossOrigin(origins = "*")
     @RequestMapping(value = "todayNews", method = RequestMethod.POST)
     public List<NewsDTO> getTodayNews() {
         return INewsService.getTodayNews();
     }
 
-    @CrossOrigin(origins = "*")
     @RequestMapping(value = "queryByCountries", method = RequestMethod.POST)
     public List<List<NewsDTO>> getNews(
             @RequestParam(name = "firstCountry")
