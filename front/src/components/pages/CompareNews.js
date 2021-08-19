@@ -158,7 +158,7 @@ function CompareNews() {
                                 formData.append('firstCountry', firstCountrySelect);
                                 formData.append('secondCountry', secondCountrySelect);
                                 formData.append('searchKeyWord', keyword);
-                                fetch('https://newsproject.azurewebsites.net/api/queryByCountries', {
+                                fetch('http://back:443/api/queryByCountries', {
                                     mode: 'cors',
                                     method: 'post',
                                     body: formData
