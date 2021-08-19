@@ -158,7 +158,7 @@ function CompareNews() {
                                 formData.append('firstCountry', firstCountrySelect);
                                 formData.append('secondCountry', secondCountrySelect);
                                 formData.append('searchKeyWord', keyword);
-                                fetch('http://back:443/queryByCountries', {
+                                fetch(`${window.location.href}/api/queryByCountries`, {
                                     mode: 'cors',
                                     method: 'post',
                                     body: formData
