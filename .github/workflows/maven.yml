@@ -76,7 +76,7 @@ jobs:
         id: build-image
         env:
           IMAGE_TAG: back
-        working-directory: front/docker
+        working-directory: back/docker
         run: |
           # Build a docker container and
           # push it to ECR so that it can
