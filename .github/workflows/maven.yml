@@ -86,9 +86,8 @@ jobs:
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
-          docker build --build-arg datasourceUser=${{ secrets.DATASOURCEUSERNAME }} --build-arg datasourceURL=${{ secrets.DATASOURCEURL }} --build-arg datasourcePassword=${{ secrets.DATASOURCEPASSWORD }} -t $ECR_REPOSITORY:$IMAGE_TAG .
-          docker tag $ECR_REPOSITORY:$IMAGE_TAG public.ecr.aws/p4y4q9s1/$ECR_REPOSITORY:$IMAGE_TAG
-          docker push public.ecr.aws/p4y4q9s1/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
       - name: Log in to Docker Hub
