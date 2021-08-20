@@ -19,7 +19,7 @@ on:
     types: [ closed ]
 env:
   AWS_REGION: us-west-1                  # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: public.ecr.aws/p4y4q9s1           # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: newsproject           # set this to your Amazon ECR repository name
   ECS_CLUSTER: NewsProject                 # set this to your Amazon ECS cluster name
 
   CONTAINER_NAME: back
@@ -86,8 +86,9 @@ jobs:
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
-          docker build --build-arg datasourceUser=${{ secrets.DATASOURCEUSERNAME }} --build-arg datasourceURL=${{ secrets.DATASOURCEURL }} --build-arg datasourcePassword=${{ secrets.DATASOURCEPASSWORD }} -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build --build-arg datasourceUser=${{ secrets.DATASOURCEUSERNAME }} --build-arg datasourceURL=${{ secrets.DATASOURCEURL }} --build-arg datasourcePassword=${{ secrets.DATASOURCEPASSWORD }} -t $ECR_REPOSITORY .
+          docker tag $ECR_REPOSITORY:$IMAGE_TAG public.ecr.aws/p4y4q9s1/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push public.ecr.aws/p4y4q9s1/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
       - name: Log in to Docker Hub
