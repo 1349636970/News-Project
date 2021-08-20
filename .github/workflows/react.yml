@@ -17,7 +17,7 @@ on:
 
 env:
   AWS_REGION: us-west-1                  # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: public.ecr.aws/p4y4q9s1/newsproject           # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: public.ecr.aws/p4y4q9s1           # set this to your Amazon ECR repository name
   ECS_CLUSTER: NewsProject                 # set this to your Amazon ECS cluster name
 
   CONTAINER_NAME: front
@@ -49,7 +49,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          ECR_REGISTRY: public.ecr.aws/p4y4q9s1
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: back
         working-directory: back/docker
         run: |
