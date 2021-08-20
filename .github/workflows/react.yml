@@ -43,12 +43,17 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Build, tag, and push image to Amazon ECR
-        id: build-and-push
-        uses: pahud/ecr-public-action@8cd826db40befb59b0cd0b60b22a7ba72d06a7f7
-        with:
-          context: front/docker
-          tags: |
-            public.ecr.aws/p4y4q9s1/$ECR_REPOSITORY:$IMAGE_TAG
+        id: build-image
+        env:
+          IMAGE_TAG: back
+        working-directory: front/docker
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build --build-arg datasourceUser=${{ secrets.DATASOURCEUSERNAME }} --build-arg datasourceURL=${{ secrets.DATASOURCEURL }} --build-arg datasourcePassword=${{ secrets.DATASOURCEPASSWORD }} -t $ECR_REPOSITORY:$IMAGE_TAG .
+          docker push public.ecr.aws/p4y4q9s1/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
 
 
