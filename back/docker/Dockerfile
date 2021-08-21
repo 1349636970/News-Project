@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk15:alpine
+FROM openjdk:15-alpine
 ARG JAR_FILE=*.jar
 
 COPY ${JAR_FILE} application.jar
