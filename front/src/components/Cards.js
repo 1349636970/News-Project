@@ -5,7 +5,7 @@ import './Cards.css';
 
 
 const fetchCards = async () => {
-    const cards123 = await fetch(`${window.location.hostname}/api/todayNews`, {
+    const cards123 = await fetch(`api/todayNews`, {
         mode: 'cors',
         method: 'post',
     });
