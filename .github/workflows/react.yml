@@ -1,4 +1,4 @@
-name: Deploy Front Project to Microsoft Azure
+name: Deploy Front Project to AWS ECS
 
 on:
   workflow_dispatch:
@@ -14,8 +14,7 @@ on:
   pull_request:
     branches: [ main ]
     types: [ closed ]
-  push:
-    branches: [ main ]
+
 
 env:
   AWS_REGION: us-west-1                  # set this to your preferred AWS region, e.g. us-west-1
