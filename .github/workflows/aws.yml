@@ -88,7 +88,7 @@ jobs:
           push: true
           tags: a1349636970/news_project:front
   back:
-
+    needs: front
     runs-on: ubuntu-latest
 
     steps:
