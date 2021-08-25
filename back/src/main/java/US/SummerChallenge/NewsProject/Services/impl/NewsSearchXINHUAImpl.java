@@ -34,6 +34,9 @@ public class NewsSearchXINHUAImpl extends AbstractNewsDataService {
         @SuppressWarnings("unchecked")
         Map<String, Map<String,List<Map<String,String>>>> mapper = objectMapper.readValue(requestResult, Map.class);
         List<Map<String, String>> dataList = mapper.get("content").get("results");
+        if (dataList == null) {
+            return newsDTOS;
+        }
         dataList.forEach(
                 data -> {
                     NewsDTO news = new NewsDTO();
